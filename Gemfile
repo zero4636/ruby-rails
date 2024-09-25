@@ -61,3 +61,9 @@ gem "dotenv-rails", "~> 3.1"
 gem "sidekiq", "~> 7.3"
 
 gem "sidekiq-scheduler", "~> 5.0"
+
+gem "devise", "~> 4.9"
+
+gem "bootstrap", "~> 5.3"
+
+gem "sassc-rails", "~> 2.1"

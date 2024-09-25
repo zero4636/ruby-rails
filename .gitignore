@@ -9,6 +9,9 @@
 /stop.sh
 /docker
 
+# Ignore IDE
+/.idea/*
+
 # Ignore bundler config.
 /.bundle
 
