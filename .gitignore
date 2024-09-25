@@ -10,7 +10,7 @@
 /docker
 
 # Ignore IDE
-/.idea/*
+/.idea
 
 # Ignore bundler config.
 /.bundle
