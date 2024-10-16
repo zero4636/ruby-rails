@@ -10,11 +10,6 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
     <div class="container-flouid">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -27,7 +22,7 @@
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Member</a>
+                <%= link_to 'Users', admin_users_path, class: 'nav-item nav-link' %>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="#">Courses</a>
@@ -43,14 +38,26 @@
 
             </ul>
             <form class="">
-              <a class="btn btn-outline-primary mr-2" href="#">Login</a>
-              <a class="btn btn-outline-success" href="#">Become member</a>
+              <% if user_signed_in? %>
+                <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-outline-primary mr-2' %>
+            <% end %>
             </form>
 
           </div>
         </div>
       </nav>
     </div>
+    <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
 
     <div class="container mt-4">
       <%= yield %>

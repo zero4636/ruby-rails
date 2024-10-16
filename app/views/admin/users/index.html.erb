@@ -1,0 +1,23 @@
+<%= javascript_import_module_tag 'admin_users' %>
+<table id="users-table" class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>    <!-- Column 0 -->
+    <th>Email</th>   <!-- Column 1 -->
+    <th>Actions</th> <!-- Column 2 -->
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>  <!-- Column 0 -->
+      <td><%= user.email %></td> <!-- Column 1 -->
+      <td>
+        <%= link_to 'Show', admin_user_path(user), class: 'btn btn-primary btn-sm', data: { turbo: true } %>
+        <%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-secondary btn-sm', data: { turbo: true } %>
+        <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm, data: { turbo: true }' %>
+      </td> <!-- Column 2 -->
+    </tr>
+  <% end %>
+  </tbody>
+</table>
